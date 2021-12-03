@@ -10,4 +10,5 @@ import (
 func Routes(router *gin.Engine) {
 	apiV1 := router.Group("/api/v1")
 	apiv1.NewUserHandler(apiV1)
+	apiv1.NewProductHandler(apiV1)
 }
