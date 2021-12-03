@@ -1,6 +1,7 @@
 package apiv1
 
 import (
+	"golang-apiserver/db"
 	"golang-apiserver/model"
 	"golang-apiserver/repository"
 	"golang-apiserver/resources"
@@ -17,7 +18,7 @@ type ProductHandler struct {
 
 // NewProductHandler
 func NewProductHandler(r *gin.RouterGroup) {
-	userRepo := repository.NewProductRepository(nil)
+	userRepo := repository.NewProductRepository(db.DB.Con)
 	productService := service.NewProductService(userRepo)
 	productHandler := ProductHandler{
 		productService: productService,
