@@ -37,5 +37,4 @@ func (h *ProductHandler) ProductList(c *gin.Context) {
 		Code:    http.StatusBadRequest,
 		Results: data,
 	})
-	return
 }

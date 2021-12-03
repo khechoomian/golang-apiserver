@@ -11,10 +11,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var (
-	userID uint = 0
-)
-
 // UserHandler
 type UserHandler struct {
 	userService model.UserService
@@ -45,8 +41,8 @@ func (h *UserHandler) Login(c *gin.Context) {
 		})
 		return
 	}
-	if u, ok := h.userService.Login(user); ok {
-		userID = u.ID
+	if _, ok := h.userService.Login(user); ok {
+		return
 	} else {
 		c.JSON(http.StatusBadRequest, resources.WebResponse{
 			Code: http.StatusBadRequest,
