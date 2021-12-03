@@ -6,12 +6,14 @@ Copyright 2021
 package main
 
 import (
+	"golang-apiserver/api"
 	"log"
 
 	"github.com/joho/godotenv"
 )
 
 func main() {
+	api.Run()
 }
 
 func init() {
