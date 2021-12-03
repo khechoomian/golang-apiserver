@@ -14,3 +14,9 @@ type UserService interface {
 	Login(User) (User, bool)
 	Register(User) (User, bool)
 }
+
+// UserRepository repository of user model
+type UserRepository interface {
+	Create(User) User
+	GetByEmail(userEmail string) User
+}
