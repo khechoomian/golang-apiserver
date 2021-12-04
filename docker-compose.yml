@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+        db:
+                restart: always
+                image: postgres:latest
+                environment:
+                        POSTGRES_USER: test
+                        POSTGRES_PASSWORD: test
+                        POSTGRES_DB: test
+        api:
+                build: .
+                image: api:v1
+                restart: always
+                ports:
+                        - 1234:1234
+                environment:
+                        DATABASE_NAME: test
+                        DATABASE_USER: test
+                        DATABASE_PASSWORD: test
+                        DATABASE_PORT: 5432
+                        DATABASE_HOST: db
+                        API_PORT: 1234
+                        APP_MODE: debug 
+                depends_on:
+                        - db
+                links:
+                        - db
+                
