@@ -2,8 +2,10 @@ version: "3.8"
 
 services:
         db:
-                restart: always
                 image: postgres:latest
+                restart: always
+                volumes:
+                        - db-data:/var/lib/postgresql
                 environment:
                         POSTGRES_USER: test
                         POSTGRES_PASSWORD: test
@@ -25,6 +27,5 @@ services:
                         - db
                 links:
                         - db
-                
-networks:
-        apiserver:
+volumes:
+        db-data:
