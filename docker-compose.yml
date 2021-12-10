@@ -9,8 +9,7 @@ services:
                         POSTGRES_PASSWORD: test
                         POSTGRES_DB: test
         api:
-                build: .
-                image: api:v1
+                image: golang/apiserver:v1
                 restart: always
                 ports:
                         - 1234:1234
@@ -27,3 +26,5 @@ services:
                 links:
                         - db
                 
+networks:
+        apiserver:
