@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY .  .
 COPY .env .env
-RUN ls -l
+
 ENV CGO_ENABLED=0
 RUN go build -ldflags="-w -s" ./cmd/golang-apiserver
 
