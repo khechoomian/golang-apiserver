@@ -27,4 +27,4 @@ build-docker:
 
 docker-compose:
 	$(MAKE) go-fmt
-	docker-compose up -d --build
+	docker-compose -f deployments/docker-compose.yml up -d 
